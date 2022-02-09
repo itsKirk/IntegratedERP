@@ -1,0 +1,4 @@
+﻿CREATE PROCEDURE [dbo].[cleanERP]
+AS
+DELETE FROM Subjects
+DBCC CHECKIDENT (Subjects, RESEED, 1);

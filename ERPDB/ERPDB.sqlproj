@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>ERPDB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{716f86e2-34ce-4455-9a2d-72562a58b189}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>ERPDB</RootNamespace>
+    <AssemblyName>ERPDB</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="DbProfile" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DbProfile\ERPDB.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Subjects.sql" />
+    <Build Include="StoredProcedures\insertSubject.sql" />
+    <Build Include="StoredProcedures\getSubjects.sql" />
+    <Build Include="StoredProcedures\getSubject.sql" />
+    <Build Include="Tables\DeletedSubjects.sql" />
+    <Build Include="StoredProcedures\insertDeletedSubject.sql" />
+    <Build Include="StoredProcedures\deleteSubject.sql" />
+    <Build Include="StoredProcedures\updateSubject.sql" />
+    <Build Include="StoredProcedures\insertEditedSubject.sql" />
+    <Build Include="Tables\EditedSubjects.sql" />
+    <Build Include="StoredProcedures\cleanERP.sql" />
+    <Build Include="Tables\Banks.sql" />
+    <Build Include="StoredProcedures\insertBank.sql" />
+    <Build Include="StoredProcedures\getBanks.sql" />
+    <Build Include="StoredProcedures\deleteBank.sql" />
+    <Build Include="Tables\EditedBanks.sql" />
+    <Build Include="Tables\DeletedBanks.sql" />
+    <Build Include="StoredProcedures\insertEditedBank.sql" />
+    <Build Include="StoredProcedures\insertDeletedBank.sql" />
+    <Build Include="StoredProcedures\editBank.sql" />
+    <Build Include="Tables\Teachers.sql" />
+    <Build Include="StoredProcedures\insertTeacher.sql" />
+    <Build Include="StoredProcedures\insertDeletedTeacher.sql" />
+    <Build Include="Tables\DeletedTeachers.sql" />
+    <Build Include="Tables\EditedTeachers.sql" />
+    <Build Include="StoredProcedures\insertEditedTeacher.sql" />
+    <Build Include="StoredProcedures\getTeachers.sql" />
+    <Build Include="StoredProcedures\getTeacherContacts.sql" />
+  </ItemGroup>
+</Project>
